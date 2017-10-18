@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>EZ Avatar</title>
+<link href="style.bundle.css" rel="stylesheet"></head>
+<body>
+
+  <h1>EZ Avatar</h1>
+  <h3>Simple avatar web component with initials & zero-state</h3>
+
+  <div class="examples">
+
+    <div class="example">
+      <div class="example-content">
+        <ez-avatar></ez-avatar>
+      </div>
+      <div class="example-details">
+        <p>Default avatar, no parameters & zero-state. Life's too short to have breaking layout from no content.</p>
+        <code>
+          &lt;ez-avatar&gt;&lt;/ez-avatar&gt;
+        </code>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="example-content">
+        <ez-avatar size="120" src="https://avatars1.githubusercontent.com/u/2633184?v=3&s=460"></ez-avatar>
+      </div>
+      <div class="example-details">
+        <p>Avatar with size & src</p>
+        <code>
+          &lt;ez-avatar size="120" src="..."&gt;&lt;/ez-avatar&gt;
+        </code>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="example-content">
+        <ez-avatar size="38" initials="tc"></ez-avatar>
+        <ez-avatar size="55" initials="tc"></ez-avatar>
+        <ez-avatar size="96" initials="tc"></ez-avatar>
+      </div>
+      <div class="example-details">
+        <p>Avatar with size & initials, text scales with avatar size</p>
+        <code>
+          &lt;ez-avatar size="38" initials="tc"&gt;&lt;/ez-avatar&gt;<br>
+          &lt;ez-avatar size="55" initials="tc"&gt;&lt;/ez-avatar&gt;<br>
+          &lt;ez-avatar size="96" initials="tc"&gt;&lt;/ez-avatar&gt;<br>
+        </code>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="example-content">
+        <ez-avatar id="changeId" size="64" src="https://cdn.hackaday.io/images/resize/100x100/4064901458199974757.png"></ez-avatar>
+        <ez-avatar id="changeId2" size="64" initials="TC"></ez-avatar>
+      </div>
+      <div class="example-details">
+        <p>Avatars with dynamic content (changes every 2 seconds)</p>
+        <code>
+          &lt;ez-avatar id="changeId" size="64" src="..."&gt;&lt;/ez-avatar&gt;<br>
+          &lt;ez-avatar id="changeId2" size="64" initials="TC"&gt;&lt;/ez-avatar&gt;
+        </code>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script type="text/javascript">
+    // NOTE: This is for example purposes only!
+    var images = ['https://cdn.hackaday.io/images/resize/100x100/4064901458199974757.png', 'https://cdn.hackaday.io/images/resize/150x150/7255311484679597966.png']
+    var initials = ['tc', 'ez']
+    var bool = 1
+
+    // Sample Event: Change out avatar to show avatar url changes
+    setInterval(function(){
+      var avatarInst = document.getElementById('changeId')
+      var avatarInst2 = document.getElementById('changeId2')
+      var imgUrl = images[((bool === 0) ? 0 : 1)]
+      var avaInit = initials[((bool === 0) ? 0 : 1)]
+      avatarInst.src(imgUrl)
+      avatarInst2.initials(avaInit)
+      bool = (bool === 0) ? 1 : 0
+    }, 2000);
+  </script>
+<script type="text/javascript" src="app.bundle.js"></script></body>
+</html>

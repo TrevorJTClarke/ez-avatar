@@ -1,0 +1,29 @@
+$lightgrey:       #cbcbcb !default;
+$darkgrey:        #6e6e6e !default;
+
+:host {
+  background: $lightgrey;
+  color: $darkgrey;
+  display: block;
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  text-align: center;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+img {
+  display: none;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  will-change: opacity;
+  transition: opacity 220ms ease-in-out;
+}
